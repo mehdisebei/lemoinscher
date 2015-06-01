@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Entity/Place.php</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Resources/config/routing.yml</file>
             <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Entity/Category.php</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Entity/Category.php</file>
+            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Controller/DefaultController.php</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Resources/config/services.yml</file>
+            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Entity/Price.php</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Admin/ProduitAdmin.php</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Controller/DefaultController.php</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Resources/views/Produit/produit.html.twig</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Resources/views/layout.html.twig</file>
             <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Entity/Produit.php</file>
             <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Admin/CategoryAdmin.php</file>
-            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Entity/uploads/1395666127513.png</file>
-            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Admin/ProduitAdmin.php</file>
-            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Entity/uploads/0.jpeg</file>
+            <file>file:/Users/air/compareprice/src/Admin/AdminBundle/Admin/PriceAdmin.php</file>
+            <file>file:/Users/air/compareprice/app/AppKernel.php</file>
+            <file>file:/Users/air/compareprice/src/Front/FrontBundle/Controller/ProduitContoller.php</file>
         </group>
     </open-files>
 </project-private>

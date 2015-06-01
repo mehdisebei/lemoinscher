@@ -1,0 +1,32 @@
+Front\FrontBundle\Entity\Category:
+    type: entity
+    table: category
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        category:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        subcategory:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        subsubcategory:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

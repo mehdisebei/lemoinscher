@@ -1,4 +1,32 @@
 {% extends 'FrontBundle::layout.html.twig' %}
+{% block nav %}
+
+        
+        
+
+<div class="col1">
+<div class="h_nav">
+<ul>
+<li><a href="products.html">Accessories</a></li>
+{% for x in entity %}
+<li><a href="products.html">{{ x.subsubcategory }}</a></li>
+{% endfor %}
+</ul>
+</div>
+</div>
+    {% endblock %}
+    {% block navv %}
+    <div class="col1">
+<div class="h_nav">
+<ul>
+<li><a href="decor.html">Bed</a></li>
+    {#{% for y in electro %}
+    <li><a href="decor.html">{{ y.subsubcategory }}</a></li>
+    {% endfor %}#}
+</ul>
+</div>
+</div>
+    {% endblock %}
 {% block content %}
     <div class="container">
         <div class="product">

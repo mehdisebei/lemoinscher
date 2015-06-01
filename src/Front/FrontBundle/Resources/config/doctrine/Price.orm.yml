@@ -1,0 +1,55 @@
+Front\FrontBundle\Entity\Price:
+    type: entity
+    table: price
+    indexes:
+        place_id:
+            columns:
+                - place_id
+        produit_id:
+            columns:
+                - produit_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        lastUpdate:
+            type: date
+            nullable: false
+            comment: ''
+            column: last_update
+        amount:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            comment: ''
+        promotion:
+            type: boolean
+            nullable: true
+            comment: ''
+    manyToOne:
+        place:
+            targetEntity: Place
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                place_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        produit:
+            targetEntity: Produit
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                produit_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

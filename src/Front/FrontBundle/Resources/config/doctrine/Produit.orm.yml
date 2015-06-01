@@ -1,0 +1,57 @@
+Front\FrontBundle\Entity\Produit:
+    type: entity
+    table: Produit
+    indexes:
+        id_category:
+            columns:
+                - id_category
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        picture:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        brand:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        barCode:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            column: bar_code
+        updateDate:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: update_date
+    manyToOne:
+        idCategory:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_category:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,67 +1,43 @@
 <?php
 
-namespace Admin\AdminBundle\Entity;
+namespace Front\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Price
- *
- * @ORM\Table(name="price", indexes={@ORM\Index(name="place_id", columns={"place_id"}), @ORM\Index(name="produit_id", columns={"produit_id"})})
- * @ORM\Entity
  */
 class Price
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="last_update", type="date", nullable=false)
      */
     private $lastUpdate;
 
     /**
      * @var float
-     *
-     * @ORM\Column(name="amount", type="float", precision=10, scale=0, nullable=false)
      */
     private $amount;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="promotion", type="boolean", nullable=true)
      */
     private $promotion;
 
     /**
-     * @var \Place
-     *
-     * @ORM\ManyToOne(targetEntity="Place")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="place_id", referencedColumnName="id")
-     * })
+     * @var \Front\FrontBundle\Entity\Place
      */
     private $place;
 
     /**
-     * @var \Produit
-     *
-     * @ORM\ManyToOne(targetEntity="Produit")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="produit_id", referencedColumnName="id")
-     * })
+     * @var \Front\FrontBundle\Entity\Produit
      */
     private $produit;
-
 
 
     /**
@@ -146,10 +122,10 @@ class Price
     /**
      * Set place
      *
-     * @param \Admin\AdminBundle\Entity\Place $place
+     * @param \Front\FrontBundle\Entity\Place $place
      * @return Price
      */
-    public function setPlace(\Admin\AdminBundle\Entity\Place $place = null)
+    public function setPlace(\Front\FrontBundle\Entity\Place $place = null)
     {
         $this->place = $place;
 
@@ -159,9 +135,9 @@ class Price
     /**
      * Get place
      *
-     * @return \Admin\AdminBundle\Entity\Place 
+     * @return \Front\FrontBundle\Entity\Place 
      */
-    public function getPlaceId()
+    public function getPlace()
     {
         return $this->place;
     }
@@ -169,10 +145,10 @@ class Price
     /**
      * Set produit
      *
-     * @param \Admin\AdminBundle\Entity\Produit $produit
+     * @param \Front\FrontBundle\Entity\Produit $produit
      * @return Price
      */
-    public function setProduit(\Admin\AdminBundle\Entity\Produit $produit = null)
+    public function setProduit(\Front\FrontBundle\Entity\Produit $produit = null)
     {
         $this->produit = $produit;
 
@@ -182,14 +158,10 @@ class Price
     /**
      * Get produit
      *
-     * @return \Admin\AdminBundle\Entity\Produit 
+     * @return \Front\FrontBundle\Entity\Produit 
      */
-    public function getProduitId()
+    public function getProduit()
     {
         return $this->produit;
     }
-
- 
-
- 
 }
