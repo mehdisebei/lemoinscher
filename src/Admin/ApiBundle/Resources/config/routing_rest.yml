@@ -1,0 +1,8 @@
+Category : 
+  type: rest
+  resource:     Admin\ApiBundle\Controller\CategoryController
+  name_prefix:  api_
+Produit : 
+  type: rest
+  resource:     "ApiBundle:Produit"
+  name_prefix:  api_  

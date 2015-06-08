@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\Produit:
+Admin\AdminBundle\Entity\Produit:
     type: entity
     table: Produit
     indexes:
@@ -54,4 +54,6 @@ Front\FrontBundle\Entity\Produit:
                 id_category:
                     referencedColumnName: id
             orphanRemoval: false
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+      prePersist:   [ lifecycleFileUpload ]
+      preUpdate:    [ lifecycleFileUpload ]

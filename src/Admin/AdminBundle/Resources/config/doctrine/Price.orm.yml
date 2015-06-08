@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\Price:
+Admin\AdminBundle\Entity\Price:
     type: entity
     table: price
     indexes:

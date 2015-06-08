@@ -1,7 +1,7 @@
 <?php
 
 namespace Admin\AdminBundle\Entity;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile ;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="Produit", indexes={@ORM\Index(name="id_category", columns={"id_category"})})
  * @ORM\Entity
  */
-class Produit
-{
+class Produit {
+
     /**
      * @var integer
      *
@@ -55,7 +55,10 @@ class Produit
      * @ORM\Column(name="update_date", type="datetime", nullable=true)
      */
     private $updateDate = 'CURRENT_TIMESTAMP';
-
+/**
+     * Unmapped property to handle file uploads
+     */
+    private $file;
     /**
      * @var \Category
      *
@@ -66,15 +69,12 @@ class Produit
      */
     private $idCategory;
 
-
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -84,8 +84,7 @@ class Produit
      * @param string $nom
      * @return Produit
      */
-    public function setNom($nom)
-    {
+    public function setNom($nom) {
         $this->nom = $nom;
 
         return $this;
@@ -96,8 +95,7 @@ class Produit
      *
      * @return string 
      */
-    public function getNom()
-    {
+    public function getNom() {
         return $this->nom;
     }
 
@@ -107,8 +105,7 @@ class Produit
      * @param string $picture
      * @return Produit
      */
-    public function setPicture($picture)
-    {
+    public function setPicture($picture) {
         $this->picture = $picture;
 
         return $this;
@@ -119,8 +116,7 @@ class Produit
      *
      * @return string 
      */
-    public function getPicture()
-    {
+    public function getPicture() {
         return $this->picture;
     }
 
@@ -130,8 +126,7 @@ class Produit
      * @param string $brand
      * @return Produit
      */
-    public function setBrand($brand)
-    {
+    public function setBrand($brand) {
         $this->brand = $brand;
 
         return $this;
@@ -142,8 +137,7 @@ class Produit
      *
      * @return string 
      */
-    public function getBrand()
-    {
+    public function getBrand() {
         return $this->brand;
     }
 
@@ -153,8 +147,7 @@ class Produit
      * @param integer $barCode
      * @return Produit
      */
-    public function setBarCode($barCode)
-    {
+    public function setBarCode($barCode) {
         $this->barCode = $barCode;
 
         return $this;
@@ -165,8 +158,7 @@ class Produit
      *
      * @return integer 
      */
-    public function getBarCode()
-    {
+    public function getBarCode() {
         return $this->barCode;
     }
 
@@ -176,8 +168,7 @@ class Produit
      * @param \DateTime $updateDate
      * @return Produit
      */
-    public function setUpdateDate($updateDate)
-    {
+    public function setUpdateDate($updateDate) {
         $this->updateDate = $updateDate;
 
         return $this;
@@ -188,8 +179,7 @@ class Produit
      *
      * @return \DateTime 
      */
-    public function getUpdateDate()
-    {
+    public function getUpdateDate() {
         return $this->updateDate;
     }
 
@@ -199,8 +189,7 @@ class Produit
      * @param \Admin\AdminBundle\Entity\Category $idCategory
      * @return Produit
      */
-    public function setIdCategory(\Admin\AdminBundle\Entity\Category $idCategory = null)
-    {
+    public function setIdCategory(\Admin\AdminBundle\Entity\Category $idCategory = null) {
         $this->idCategory = $idCategory;
 
         return $this;
@@ -211,42 +200,67 @@ class Produit
      *
      * @return \Admin\AdminBundle\Entity\Category 
      */
-    public function getIdCategory()
-    {
+    public function getIdCategory() {
         return $this->idCategory;
     }
-    
+
     public function __toString() {
-        return $this->nom;;
+        return $this->nom;
+        
     }
-      public function upload()
-{
-    // the file property can be empty if the field is not required
-    if (null === $this->getPicture()) {
+
+    
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null) {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile() {
+        return $this->file;
+    }
+
+    public function upload() {
+       dump("upload");
+        if (null === $this->getFile()) {
         return;
     }
 
-    // we use the original file name here but you should
-    // sanitize it at least to avoid any security issues
-
-    // move takes the target directory and target filename as params
-    $this->getPicture()->move(
-   __DIR__.'/uploads/',
-        $this->getPicture()->getClientOriginalName()
-            
+    $this->getFile()->move(
+       __DIR__ . '/../../../../uploads/',
+        $this->getFile()->getClientOriginalName()
     );
-
+  
     // set the path property to the filename where you've saved the file
-    $this->filename = $this->getPicture()->getClientOriginalName();
-
+    $this->picture = $this->getFile()->getClientOriginalName();
+  
     // clean up the file property as you won't need it anymore
-    $this->getPicture(null);
-}
-public function lifecycleFileUpload() {
-    $this->upload();
-}
-  public function refreshUpdated()
+    $this->setFile(null);
+    }
+
+    public function lifecycleFileUpload() {
+        dump("lifecycleFileUpload");
+        $this->upload();
+    }
+
+    public function refreshUpdated() {
+          dump("refreshUpdated");
+       $this->setUpdateDate(new \DateTime("now"));
+       // $this->upload();
+      
+    }
+    public function __construct()
     {
-         $this->upload(); 
+      
+         $this->updateDate =  new \DateTime();
     }
 }

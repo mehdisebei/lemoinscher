@@ -1,3 +1,8 @@
+#app/routing.yml
+api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
 front:
     resource: "@FrontBundle/Resources/config/routing.yml"
     prefix:   /
@@ -40,4 +45,9 @@ sonata_user_change_password:
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin    
+    
+rest : 
+  type : rest 
+  resource : "routing_rest.yml"
+  prefix : /api
     

@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\Place:
+Admin\AdminBundle\Entity\Place:
     type: entity
     table: place
     id:

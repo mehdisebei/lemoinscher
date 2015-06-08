@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\AclEntries:
+Admin\AdminBundle\Entity\AclEntries:
     type: entity
     table: acl_entries
     indexes:

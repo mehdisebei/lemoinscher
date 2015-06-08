@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\Category:
+Admin\AdminBundle\Entity\Category:
     type: entity
     table: category
     id:

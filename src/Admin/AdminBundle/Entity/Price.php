@@ -149,7 +149,7 @@ class Price
      * @param \Admin\AdminBundle\Entity\Place $place
      * @return Price
      */
-    public function setPlace(\Admin\AdminBundle\Entity\Place $place = null)
+    public function setPlaceId(\Admin\AdminBundle\Entity\Place $place = null)
     {
         $this->place = $place;
 
@@ -172,7 +172,7 @@ class Price
      * @param \Admin\AdminBundle\Entity\Produit $produit
      * @return Price
      */
-    public function setProduit(\Admin\AdminBundle\Entity\Produit $produit = null)
+    public function setProduitId(\Admin\AdminBundle\Entity\Produit $produit = null)
     {
         $this->produit = $produit;
 

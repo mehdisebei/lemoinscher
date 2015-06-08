@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\FosUserGroup:
+Admin\AdminBundle\Entity\FosUserGroup:
     type: entity
     table: fos_user_group
     uniqueConstraints:

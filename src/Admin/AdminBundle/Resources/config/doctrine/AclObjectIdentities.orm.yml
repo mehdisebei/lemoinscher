@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\AclObjectIdentities:
+Admin\AdminBundle\Entity\AclObjectIdentities:
     type: entity
     table: acl_object_identities
     indexes:

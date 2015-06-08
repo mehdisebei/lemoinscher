@@ -1,5 +1,4 @@
-## YAML Template.
----
+
 services:
     sonata.admin.Produit:
         class: Admin\AdminBundle\Admin\ProduitAdmin

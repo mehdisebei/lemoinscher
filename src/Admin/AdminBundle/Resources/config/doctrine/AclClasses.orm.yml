@@ -1,4 +1,4 @@
-Front\FrontBundle\Entity\AclClasses:
+Admin\AdminBundle\Entity\AclClasses:
     type: entity
     table: acl_classes
     uniqueConstraints:

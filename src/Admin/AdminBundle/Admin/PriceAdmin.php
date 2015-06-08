@@ -18,11 +18,11 @@ class PriceAdmin extends Admin {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-            
+                ->add('lastUpdate')
                 ->add('amount')
                 ->add('promotion')
-                ->add('place_id','entity',array('class'=>'Admin\AdminBundle\Entity\Place','multiple' => true))
-                ->add('produit_id','entity',array('class'=>'Admin\AdminBundle\Entity\Produit',"multiple" => true))
+                ->add('place_id','entity',array('class'=>'Admin\AdminBundle\Entity\Place'))
+                ->add('produit_id','entity',array('class'=>'Admin\AdminBundle\Entity\Produit'))
              
         ;
     }
@@ -31,21 +31,23 @@ class PriceAdmin extends Admin {
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
         $datagridMapper
    
-                ->add('lastupdate')
+                ->add('lastUpdate')
                 ->add('amount')
                 ->add('promotion')
+                ->add('place_id','entity',array('class'=>'Admin\AdminBundle\Entity\Place'))
+                ->add('produit_id','entity',array('class'=>'Admin\AdminBundle\Entity\Produit'))
+             
         ;
     }
 
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
-                ->add('lastupdate')
+                ->add('lastUpdate')
                 ->add('amount')
                 ->add('promotion')
                
-                ->add('place_id','entity',array('class'=>'Admin\AdminBundle\Entity\Place'))
-                ->add('produit_id','entity',array('class'=>'Admin\AdminBundle\Entity\Produit'))
+              
         ;
     }
 
